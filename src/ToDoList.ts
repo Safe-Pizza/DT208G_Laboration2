@@ -29,7 +29,10 @@ export class ToDoList {
     }
 
     markTodoComplete(todoIndex: number): void {
-
+        if(this.todos[todoIndex]) {
+            this.todos[todoIndex].completed = true;
+            this.saveToLocalStorage(this.todos);
+        }
     }
 
     getTodos(): Todo[] {

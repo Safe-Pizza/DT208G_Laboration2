@@ -50,18 +50,32 @@ function writeTodos(): void {
 
   if (todosEl) {
 
-    todos.forEach((todo) => {
+    todos.forEach((todo, index) => {
       const liEl = document.createElement("li") as HTMLLIElement;
 
       liEl.innerHTML = `Uppgift: ${todo.task} <br>
       Prio: ${todo.priority}<br>`;
-      todosEl.appendChild(liEl);
 
       const buttonEl = document.createElement("button") as HTMLButtonElement;
       buttonEl.classList.add("finish-todo");
-      buttonEl.textContent = "Uppgift klar";
+      buttonEl.textContent = "Ej utförd";
 
-      todosEl.appendChild(buttonEl);
+      if (todo.completed) {
+        liEl.style.textDecoration = "line-through";
+        buttonEl.classList.replace("finish-todo", "done-todo");
+        buttonEl.textContent = `Klar`;
+      }
+
+      buttonEl.addEventListener("click", () => {
+        toDoList.markTodoComplete(index);
+        liEl.style.textDecoration = "line-through";
+        buttonEl.classList.replace("finish-todo", "done-todo");
+        buttonEl.textContent = `Klar`;
+        buttonEl.disabled;
+      })
+
+      liEl.appendChild(buttonEl);
+      todosEl.appendChild(liEl);
     })
   }
 }
