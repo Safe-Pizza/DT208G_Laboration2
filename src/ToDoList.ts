@@ -30,36 +30,37 @@ export class ToDoList {
 
     markTodoComplete(todoIndex: number): void {
         if (this.todos[todoIndex]) {
-            this.todos[todoIndex].completed = true;
-            this.saveToLocalStorage(this.todos);
+            this.todos[todoIndex].completed = true; //uppdatera completed till true för todo-objekt
+            this.saveToLocalStorage(this.todos); //spara till localstorgae
         }
     }
 
     getTodos(): Todo[] {
-        return this.todos;
+        return this.todos; //returnerar todos array
     }
 
     saveToLocalStorage(todos: Todo[]): void {
-        localStorage.setItem("todos", JSON.stringify(todos));
+        localStorage.setItem("todos", JSON.stringify(todos)); //spara till localstorge
     }
 
     loadFromLocalStorage(): void {
-        const storageData = localStorage.getItem("todos");
+        const storageData = localStorage.getItem("todos"); //hämta från localstorgae
 
         if (storageData) {
-            this.todos = JSON.parse(storageData);
+            this.todos = JSON.parse(storageData); //kovertera till objekt
         }
     }
 
     removeFromLocalStorage(todoIndex: number): void {
-        const newTodos = this.todos;
+        const newTodos = this.todos; //hämta todosarray
 
-        if (newTodos.length === 1) {
-            localStorage.clear();
+        if (newTodos.length === 1) { //kontroll om array är endas ett värde
+            localStorage.clear(); //töm localstorage
+            this.todos = []; // töm todos array
         } else {
-            newTodos.splice(todoIndex, 1);
+            newTodos.splice(todoIndex, 1); //ta bort värde ur array
 
-            this.saveToLocalStorage(newTodos);
+            this.saveToLocalStorage(newTodos); //spara ny array till localstorage
         }
     }
 }
