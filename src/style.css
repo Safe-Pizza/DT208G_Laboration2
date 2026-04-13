@@ -59,6 +59,13 @@ button:active {
   background-color: darkgreen;
 }
 
+.delete-todo {
+  background-color: darkred;
+  width: 150px;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
 #error-message {
   color: red;
   margin-bottom: 2rem;

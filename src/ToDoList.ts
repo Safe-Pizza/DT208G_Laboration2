@@ -29,7 +29,7 @@ export class ToDoList {
     }
 
     markTodoComplete(todoIndex: number): void {
-        if(this.todos[todoIndex]) {
+        if (this.todos[todoIndex]) {
             this.todos[todoIndex].completed = true;
             this.saveToLocalStorage(this.todos);
         }
@@ -48,6 +48,18 @@ export class ToDoList {
 
         if (storageData) {
             this.todos = JSON.parse(storageData);
+        }
+    }
+
+    removeFromLocalStorage(todoIndex: number): void {
+        const newTodos = this.todos;
+
+        if (newTodos.length === 1) {
+            localStorage.clear();
+        } else {
+            newTodos.splice(todoIndex, 1);
+
+            this.saveToLocalStorage(newTodos);
         }
     }
 }

@@ -42,31 +42,32 @@ function addTodo(): void {
 }
 
 function writeTodos(): void {
-  toDoList.loadFromLocalStorage();
-  const todos = toDoList.getTodos();
-  const todosEl = document.getElementById("my-todos") as HTMLUListElement;
+  toDoList.loadFromLocalStorage(); //hämta från localstorage till array
+  const todos = toDoList.getTodos(); //hämta array
+  const todosEl = document.getElementById("my-todos") as HTMLUListElement; //html element för utskrif
 
-  todosEl.innerHTML = "";
+  todosEl.innerHTML = ""; //töm element
 
   if (todosEl) {
 
+    //loop för att skriva ut alla todos
     todos.forEach((todo, index) => {
-      const liEl = document.createElement("li") as HTMLLIElement;
+      const liEl = document.createElement("li") as HTMLLIElement; //skapa li-element
 
       liEl.innerHTML = `Uppgift: ${todo.task} <br>
       Prio: ${todo.priority}<br>`;
 
-      const buttonEl = document.createElement("button") as HTMLButtonElement;
+      const buttonEl = document.createElement("button") as HTMLButtonElement; //skapa uppgiftknapp
       buttonEl.classList.add("finish-todo");
       buttonEl.textContent = "Ej utförd";
 
-      if (todo.completed) {
+      if (todo.completed) { //kontoll om uppgift är utförd
         liEl.style.textDecoration = "line-through";
         buttonEl.classList.replace("finish-todo", "done-todo");
         buttonEl.textContent = `Klar`;
       }
 
-      buttonEl.addEventListener("click", () => {
+      buttonEl.addEventListener("click", () => { //lyssnare för uppgiftknapp
         toDoList.markTodoComplete(index);
         liEl.style.textDecoration = "line-through";
         buttonEl.classList.replace("finish-todo", "done-todo");
@@ -74,7 +75,19 @@ function writeTodos(): void {
         buttonEl.disabled;
       })
 
+      const buttonDeleteEl = document.createElement("button") as HTMLButtonElement; // skapa tabort knapp
+      buttonDeleteEl.classList.add("delete-todo");
+      buttonDeleteEl.textContent = "Ta bort";
+
+      buttonDeleteEl.addEventListener("click", () => { //lyssnare för tabort knapp
+        toDoList.removeFromLocalStorage(index);
+
+        liEl.remove();
+      })
+
+      //skriv ut till DOM
       liEl.appendChild(buttonEl);
+      liEl.appendChild(buttonDeleteEl);
       todosEl.appendChild(liEl);
     })
   }
