@@ -33,6 +33,8 @@ function addTodo(): void {
     taskInput.value = "";
     prioInput.value = "";
 
+    writeTodos();
+
   } else {
     errorEl.textContent = "Båda fälten måste vara ifyllda. Prioritet: 1 - hög till 3 låg."
   }
@@ -42,6 +44,8 @@ function writeTodos(): void {
   toDoList.loadFromLocalStorage();
   const todos = toDoList.getTodos();
   const todosEl = document.getElementById("my-todos") as HTMLUListElement;
+
+  todosEl.innerHTML = "";
 
   if (todosEl) {
 
