@@ -85,3 +85,9 @@ li {
   color: black;
   border-radius: 5px;
 }
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 1.4rem;
+  }
+}
