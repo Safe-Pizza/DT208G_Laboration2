@@ -8,18 +8,21 @@ export class ToDoList {
     }
 
     addTodos(task: string, priority: number): boolean {
+        //validering av prioritet 1-3
         if(![1, 2, 3].includes(priority)) {
             return false; 
         }
+        //validering av task-input
         if (task === "") {
             return false;
         }
+        //skapa ny todo
         const newTodo: Todo = {
             task: task,
             completed: false,
             priority: priority
         }
-
+        //push till todos array
         this.todos.push(newTodo);
         return true;
     }
