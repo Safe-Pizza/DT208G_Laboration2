@@ -4,6 +4,7 @@ import { ToDoList } from './ToDoList';
 const toDoList = new ToDoList(); //Aktivera ToDoList klass
 
 document.addEventListener("DOMContentLoaded", () => {
+  writeTodos();
   //Formulär element
   const form = document.getElementById("add-todos") as HTMLFormElement;
 
@@ -34,5 +35,22 @@ function addTodo(): void {
 
   } else {
     errorEl.textContent = "Båda fälten måste vara ifyllda. Prioritet: 1 - hög till 3 låg."
+  }
+}
+
+function writeTodos(): void {
+  toDoList.loadFromLocalStorage();
+  const todos = toDoList.getTodos();
+  const todosEl = document.getElementById("my-todos") as HTMLUListElement;
+
+  if (todosEl) {
+
+    todos.forEach((todo) => {
+      const liEl = document.createElement("li") as HTMLLIElement;
+
+      liEl.innerHTML = `Uppgift: ${todo.task} <br>
+      Prio: ${todo.priority}<br>`;
+      todosEl.appendChild(liEl);
+    })
   }
 }
