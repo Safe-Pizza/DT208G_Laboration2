@@ -1,16 +1,37 @@
 <!doctype html>
 <html lang="sv">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DT208G-Laboration2</title>
-  </head>
-  <body>
-    <div class="container"> <!--CONTAINER FÖR HELA SIDAN-->
-      <main>
 
-      </main>
-    </div> <!--SLUT CONTAINER-->
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DT208G-Laboration2</title>
+</head>
+
+<body>
+  <div class="container"> <!--CONTAINER FÖR HELA SIDAN-->
+    <header>Lab2 - Typescript</header>
+    <main>
+      <h1>Min Todo-lista</h1>
+      <p>Här kan du lägga till och ordna dina Todos</p>
+      <div id="form-course">
+        <form id="add-todos">
+          <label for="task">Uppgift:</label><br>
+          <input type="text" id="task">
+          <br>
+          <label for="prio">Prioritet:</label><br>
+          <select id="prio">
+          <option value="1">1 - Hög</option>
+          <option value="2">2 - Medel</option>
+          <option value="3">3 - Låg</option>
+          </select>
+          <br>
+          <button type="submit">Spara kurs</button>
+        </form>
+      </div>
+
+    </main>
+  </div> <!--SLUT CONTAINER-->
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>

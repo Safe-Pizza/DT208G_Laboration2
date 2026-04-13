@@ -1,5 +1,5 @@
-export interface Todo {
-    todo: string;
+export interface ITodo {
+    task: string;
     completed: boolean;
     priority: number;
 }
