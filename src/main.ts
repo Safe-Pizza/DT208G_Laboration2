@@ -36,6 +36,7 @@ function addTodo(): void {
     writeTodos();
 
   } else {
+    //felmeddelande
     errorEl.textContent = "Båda fälten måste vara ifyllda. Prioritet: 1 - hög till 3 låg."
   }
 }
@@ -55,6 +56,12 @@ function writeTodos(): void {
       liEl.innerHTML = `Uppgift: ${todo.task} <br>
       Prio: ${todo.priority}<br>`;
       todosEl.appendChild(liEl);
+
+      const buttonEl = document.createElement("button") as HTMLButtonElement;
+      buttonEl.classList.add("finish-todo");
+      buttonEl.textContent = "Uppgift klar";
+
+      todosEl.appendChild(buttonEl);
     })
   }
 }

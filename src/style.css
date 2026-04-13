@@ -12,6 +12,11 @@ body {
   padding: 1rem;
 }
 
+#form-todo {
+  padding-bottom: 3rem;
+  border-bottom: 2px solid whitesmoke;
+}
+
 input {
   padding: 1rem;
   width: 100%;
@@ -25,7 +30,7 @@ button {
   padding: 1rem;
   border-radius: 5px;
   border: 1px solid white;
-  min-width: 200px;
+  width: 200px;
   background-color: rgb(100, 29, 167);
   color: white;
   font-size: 1.2rem;
@@ -36,8 +41,28 @@ button:active {
   background-color: rgb(54, 17, 88);
 }
 
+.finish-todo {
+  width: 150px;
+  background-color: darkgreen;
+  margin-bottom: 2rem;
+}
+
 #error-message {
   color: red;
   margin-bottom: 2rem;
   font-size: 1.5rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 5rem;
+}
+
+li {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 5px;
 }
