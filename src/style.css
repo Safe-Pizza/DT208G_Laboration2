@@ -35,3 +35,9 @@ button {
 button:active {
   background-color: rgb(54, 17, 88);
 }
+
+#error-message {
+  color: red;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}

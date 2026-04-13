@@ -9,8 +9,8 @@ export class ToDoList {
 
     addTodos(task: string, priority: number): boolean {
         //validering av prioritet 1-3
-        if(![1, 2, 3].includes(priority)) {
-            return false; 
+        if (![1, 2, 3].includes(priority)) {
+            return false;
         }
         //validering av task-input
         if (task === "") {
@@ -24,6 +24,7 @@ export class ToDoList {
         }
         //push till todos array
         this.todos.push(newTodo);
+        this.saveToLocalStorage(this.todos);
         return true;
     }
 
@@ -32,14 +33,18 @@ export class ToDoList {
     }
 
     getTodos(): Todo[] {
-
+        return this.todos;
     }
 
-    saveToLocalStorage(): void {
-
+    saveToLocalStorage(todos: Todo[]): void {
+        localStorage.setItem("todos", JSON.stringify(todos));
     }
 
     loadFromLocalStorage(): void {
+        const storageData = localStorage.getItem("todos");
 
+        if (storageData) {
+            this.todos = JSON.parse(storageData);
+        }
     }
 }
