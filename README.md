@@ -2,7 +2,7 @@
 Detta är en laboration i _Webbutveckingsprogrammet_ på Mittuniveristetet.
 
 ## Länk till webbplats
-[Min webbplats]()
+[Min webbplats](https://safe-pizza.github.io/DT208G_Laboration2/)
 
 ## Syfte
 Syftet med denna laboration är att ge dig praktisk erfarenhet av att skapa en "att göra"-applikation med TypeScript och använda principer för objektorienterad programmering (OOP). Du kommer även att bekanta dig med användningen av interfaces, olika typer och lokal lagring (LocalStorage).
@@ -48,7 +48,7 @@ Här kan du läsa om vilka funktioner som finns, vad som används samt hur repot
     npm run dev
     ```
 
-Nu finns projektet tillgängligt för dig att köra lokal på din dator via localhost.
+Nu finns projektet tillgängligt för dig att köra lokalt på din dator via localhost.
 
 ## Kontakt
  Vill du komma i kontakt med mig?
